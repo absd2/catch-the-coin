@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Simple Game</title>
+
+        <style>
+            html { width: 98%; height: 98%; }
+            body { font-family: sans-serif; width: 100%; height: 100%; display: inline-block; text-align: center; background-color: black; }
+            #stopwatch { color: white; font-weight: 700; font-size: 40px; padding-top: 20px; }
+            .ms { font-weight: 300; font-size: 32px; }
+            #score { color: white; font-weight: 700; font-size: 32px; }
+            #gameArea { display: inline-grid; grid-template-columns: repeat(30, auto); justify-content: center; align-content: center; position: relative; margin-top: 20px; background-color: white; border-radius: 10px; }
+            .mapPixel { text-align: center; border-radius: 50%; padding: 12px; }
+            .playerPixel { background: black; }
+            .coinPixel { background: url("img/coin.gif"); background-repeat: no-repeat; background-position: center; }
+        </style>
+    </head>
+
+    <body>
+        <header id="stopwatch"></header>
+        <header id="score"></header>
+        <div id="gameArea">
+        <!-- Will be filled by script.js -->
+        </div>
+    </body>
+
+    <script src="script.js"></script>
+    <script>
+        game.init(document.getElementById('stopwatch'), document.getElementById('score'), document.getElementById('gameArea'), 30);
+        game.drawCountdown();
+        game.drawGame();
+
+        document.addEventListener('keydown', function(event) {
+            game.move(event.keyCode);
+        });
+    </script>
+</html>
